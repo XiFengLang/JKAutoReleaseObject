@@ -4,7 +4,7 @@
  * JKGCDTimerHolder 基于dispatch_queue_t封装的自释放定时器
 
 
-### 先思考一个问题：在一个由导航控制器NaviVC管理的控制器VC中运行一个定时器NSTimer，target为VC(self)，假设重复20次，在第10次的时候退出VC（出栈），怎么在最短的时间内停止定时器并释放VC？ ###
+### 先思考一个问题：在一个由导航控制器NaviVC管理的控制器VC中运行一个定时器NSTimer，target为VC(self)，重复20次，假设在第10次的时候退出VC（出栈），怎么在最短的时间内停止定时器并释放VC？ ###
 
 
 常规的NSTimer用法中, self会被强引用，必须先释放_timer才能释放self，如果_timer没能及时释放，就会出现内存泄露，这个情况在《Effective Objective-C 2.0 编写高质量iOS与OS X代码的52个有效方法》的第52条被提到。而基于GCD的dispatch_source_set_event_handler有类似的缺点,容易强引用外部变量，引起循环引用或者内存泄露。

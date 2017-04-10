@@ -1,9 +1,9 @@
 //
 //  JKNSTimerHolder.h
-//  珍夕健康
+//  JKAutoReleaseTimer
 //
 //  Created by 蒋鹏 on 16/11/15.
-//  Copyright © 2016年 深圳市见康云科技有限公司. All rights reserved.
+//  Copyright © 2016年 溪枫狼. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
