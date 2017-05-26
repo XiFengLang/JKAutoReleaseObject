@@ -8,6 +8,7 @@
 
 #import "JKGCDTimerHolder.h"
 #import <objc/runtime.h>
+#import <UIKit/UIKit.h>
 
 @interface JKGCDTimerHolder ()
 
@@ -15,16 +16,68 @@
 @property (nonatomic, assign) SEL callBackAction;
 @property (nonatomic, weak)   id actionHandler;
 
+/**
+ 重复次数，0即不重复
+ */
+@property (nonatomic, assign) NSUInteger repeatCount;
+
+/**
+ 当前执行callBackAction的次数
+ */
+@property (nonatomic, assign) __block NSUInteger currentRepeatCount;
+
+
+/**
+ 周期
+ */
+@property (nonatomic, assign) NSTimeInterval timeInterval;
 
 /**
  callBackAction 方法中的参数个数（实际的自定义参数个数 = self.numberOfArguments - 2）
  */
 @property (nonatomic, assign) unsigned int numberOfArguments;
+
+
+/**
+ 监听进入前台、后台的通知
+ */
+@property (nonatomic, assign) BOOL observingAppNotification;
+
+
+/**
+ 标记进入后台的时间戳
+ */
+@property (nonatomic, assign) NSTimeInterval markTimeInterval;
+
+
 @end
 
 
 @implementation JKGCDTimerHolder
 static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
+
+- (BOOL)observingAppNotification {
+    if (!_observingAppNotification) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillResignActiveNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
+        _observingAppNotification = YES;
+    }
+    return _observingAppNotification;
+}
+
+
+- (void)handleNotification:(NSNotification *)notification {
+    if ([notification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
+        self.markTimeInterval = [NSDate date].timeIntervalSince1970;
+    } else {
+        NSTimeInterval timeNow = [NSDate date].timeIntervalSince1970;
+        NSInteger interval = timeNow - self.markTimeInterval;
+        NSInteger number = (NSInteger)llround(self.currentRepeatCount + interval / self.timeInterval);
+        
+        self.currentRepeatCount = number < self.repeatCount ? number : self.repeatCount;
+        self.markTimeInterval = 0;
+    }
+}
 
 - (void)jk_startGCDTimerWithTimeInterval:(NSTimeInterval)seconds
                              repeatCount:(NSUInteger)repeatCount
@@ -47,8 +100,9 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
     
     self.actionHandler = handler;
     self.callBackAction = action;
+    _timeInterval = seconds;
+    _repeatCount = repeatCount;
     
-    __block NSUInteger currentRepeatCount = 0;
     
     
     /// GCD定时器代码
@@ -60,7 +114,7 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
     
     
     dispatch_source_set_event_handler(self.gcdTimer, ^{
-        currentRepeatCount += 1;
+        self.currentRepeatCount += 1;
         
         /// 实际最多只支持一个自定义参数（self.numberOfArguments - 2）
         if (self.numberOfArguments > 3) {
@@ -76,7 +130,7 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
                 func(self.actionHandler, self.callBackAction, self);
                 
                 /// PS:写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer
-                if (currentRepeatCount > repeatCount) {
+                if (self.currentRepeatCount > repeatCount) {
                     [self jk_cancelGCDTimer];
                 }
             });
@@ -84,11 +138,13 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
             /// 比如：外部响应者已释放
             [self jk_cancelGCDTimer];
             
-            if (currentRepeatCount > repeatCount) {
+            if (self.currentRepeatCount > repeatCount) {
                 [self jk_cancelGCDTimer];
             }
         }
     });
+    
+    [self observingAppNotification];
     
     /// 开始
     dispatch_resume(self.gcdTimer);
@@ -103,8 +159,8 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
     
     
     self.actionHandler = handler;
-    __block NSUInteger currentRepeatCount = 0;
-    
+    _timeInterval = seconds;
+    _repeatCount = repeatCount;
     
     /// GCD定时器代码
     dispatch_queue_t serialQueue = dispatch_queue_create(kJKGCDTimerQueueKey, DISPATCH_QUEUE_SERIAL);
@@ -115,16 +171,16 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
     
     
     dispatch_source_set_event_handler(self.gcdTimer, ^{
-        currentRepeatCount += 1;
+        self.currentRepeatCount += 1;
         
         /// Block回调
         if (nil != self.actionHandler) {
             if (handle) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    handle(self,self.actionHandler,currentRepeatCount);
+                    handle(self,self.actionHandler,self.currentRepeatCount);
                     
                     /// 次数已够，结束定时器，【写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer】
-                    if (currentRepeatCount > repeatCount) {
+                    if (self.currentRepeatCount > repeatCount) {
                         [self jk_cancelGCDTimer];
                     }
                 });
@@ -134,12 +190,13 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
             [self jk_cancelGCDTimer];
             
             /// 次数已够，结束定时器
-            if (currentRepeatCount > repeatCount) {
+            if (self.currentRepeatCount > repeatCount) {
                 [self jk_cancelGCDTimer];
             }
         }
     });
     
+    [self observingAppNotification];
     /// 开始
     dispatch_resume(self.gcdTimer);
     
@@ -149,6 +206,7 @@ static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
 
 - (void)jk_cancelGCDTimer {
     if (self.gcdTimer) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         dispatch_cancel(self.gcdTimer);
         _gcdTimer = nil;
         _callBackAction = NULL;

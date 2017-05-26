@@ -14,7 +14,6 @@
 @property (nonatomic, weak)JKNSTimerHolder * timerHolder;
 
 
-@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) NSUInteger repeatCount;
 
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
@@ -42,25 +41,24 @@
 //                                          action:@selector(jk_sel:)];
     
     /// 2.block
-    [timerHolder jk_startBlockTimerWithTimeInterval:0.5
+    [timerHolder jk_startBlockTimerWithTimeInterval:1
                                         repeatCount:self.repeatCount
                                       actionHandler:self
                                              handle:^(JKNSTimerHolder * _Nonnull jkTimer, id  _Nonnull tempSelf, NSUInteger currentCount) {
         
         ///  tempSelf == 传入的actionHandler,使用tempSelf不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
-        [(NSTimerTestVC *)tempSelf jk_sel:jkTimer];
+        [(NSTimerTestVC *)tempSelf jk_sel:jkTimer index:currentCount];
     }];
 }
 
+- (void)jk_sel:(JKNSTimerHolder *)timer {}
 
-- (void)jk_sel:(JKNSTimerHolder *)timer {
-    self.index += 1;
-    self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,将在第%zd次后取消",self.index, self.repeatCount + 1];
+- (void)jk_sel:(JKNSTimerHolder *)timer index:(NSInteger)index {
+    self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,将在第%zd次后取消",index, self.repeatCount + 1];
     
-    if (self.index == self.repeatCount + 1) {
+    if (index == self.repeatCount + 1) {
         [self.timerHolder jk_cancelNSTimer];
-        self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,已停止定时器",self.index];
-        self.index = 0;
+        self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,已停止定时器",index];
     }
 }
 

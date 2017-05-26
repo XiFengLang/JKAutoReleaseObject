@@ -14,8 +14,6 @@
 
 @property (nonatomic, weak) JKGCDTimerHolder * gcdTimerHolder;
 
-
-@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) NSUInteger repeatCount;
 
 @end
@@ -27,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.repeatCount = 10;
+    self.repeatCount = 20;
 }
 
 
@@ -41,35 +39,33 @@
 //    [self.gcdTimerHolder jk_startGCDTimerWithTimeInterval:0.5
 //                                              repeatCount:self.repeatCount
 //                                            actionHandler:self
-//                                                   action:@selector(gcdTimerAction)];
+//                                                   action:@selector(gcdTimer:)];
     
     /// 2. block
-    [self.gcdTimerHolder jk_startBlockTimerWithTimeInterval:0.5
+    [self.gcdTimerHolder jk_startBlockTimerWithTimeInterval:1.5
                                                 repeatCount:self.repeatCount
                                               actionHandler:self
                                                      handle:^(JKGCDTimerHolder * _Nonnull gcdTimer, id  _Nonnull tempSelf, NSUInteger currentCount) {
 
         ///  tempSelf == 传入的actionHandler,使用tempSelf不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
-        [(GCDTimerTestVC *)tempSelf gcdTimerAction];
+        [(GCDTimerTestVC *)tempSelf gcdTimerAction:currentCount];
     }];
 }
 
-- (void)gcdTimerAction {
-    self.index += 1;
-    self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,将在第%zd次后取消",self.index, self.repeatCount + 1];
+- (void)gcdTimer:(JKGCDTimerHolder *)timer { }
+
+- (void)gcdTimerAction:(NSInteger)index {
+    self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,将在第%zd次后取消",index, self.repeatCount + 1];
     
-    if (self.index == self.repeatCount + 1) {
-        
+    if (index == self.repeatCount + 1) {
         [self.gcdTimerHolder jk_cancelGCDTimer];
-        self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,已停止定时器",self.index];
-        self.index = 0;
+        self.msgLabel.text = [NSString stringWithFormat:@"执行%zd次,已停止定时器",index];
     }
 }
 
 
 - (IBAction)cancelTimerJK:(id)sender {
     [self.gcdTimerHolder jk_cancelGCDTimer];
-    self.index = 0;
 }
 
 

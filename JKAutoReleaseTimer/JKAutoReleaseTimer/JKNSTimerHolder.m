@@ -8,6 +8,7 @@
 
 #import "JKNSTimerHolder.h"
 #import <objc/runtime.h>
+#import <UIKit/UIKit.h>
 
 @interface JKNSTimerHolder ()
 
@@ -21,6 +22,11 @@
  */
 @property (nonatomic, assign) NSUInteger repeatCount;
 
+
+/**
+ 周期
+ */
+@property (nonatomic, assign) NSTimeInterval timeInterval;
 
 /**
  当前执行callBackAction的次数
@@ -41,11 +47,23 @@
 
 @property (nonatomic, copy) JKNSTimerHandle handleBlock;
 
+
+/**
+ 监听进入前台、后台的通知
+ */
+@property (nonatomic, assign) BOOL observingAppNotification;
+
+
+/**
+ 标记进入后台的时间戳
+ */
+@property (nonatomic, assign) NSTimeInterval markTimeInterval;
 @end
 
 @implementation JKNSTimerHolder
 - (void)dealloc {
     [self jk_cancelNSTimer];
+    
 #ifdef DEBUG
     NSLog(@"%@ 已释放",self.class);
 #endif
@@ -54,12 +72,38 @@
 
 - (void)jk_cancelNSTimer {
     if (self.timer) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         [_timer invalidate];
         _timer = nil;
         _currentRepeatCount = 0;
         _handleBlock = nil;
         _action = NULL;
         _repeatCount = 0;
+    }
+}
+
+
+- (BOOL)observingAppNotification {
+    if (!_observingAppNotification) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillResignActiveNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
+        _observingAppNotification = YES;
+    }
+    return _observingAppNotification;
+}
+
+- (void)handleNotification:(NSNotification *)notification {
+    if (self.suspended == NO) {
+        if ([notification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
+            self.markTimeInterval = [NSDate date].timeIntervalSince1970;
+        } else {
+            NSTimeInterval timeNow = [NSDate date].timeIntervalSince1970;
+            NSInteger interval = timeNow - self.markTimeInterval;
+            NSInteger number = (NSInteger)llround(self.currentRepeatCount + interval / self.timeInterval);
+            
+            self.currentRepeatCount = number < self.repeatCount ? number : self.repeatCount;
+            self.markTimeInterval = 0;
+        }
     }
 }
 
@@ -81,6 +125,8 @@
         return;
     }
     
+    [self observingAppNotification];
+    
     /// 方法的参数个数（实际的自定义参数个数 = self.numberOfArguments - 2）
     self.numberOfArguments = method_getNumberOfArguments(callBackMethod);
     //    NSLog(@"%s",method_getTypeEncoding(callBackMethod));
@@ -91,6 +137,7 @@
     
     _actionHandler = handler;
     _action = action;
+    _timeInterval = seconds;
     _repeatCount = repeatCount;
     _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
                                               target:self
@@ -150,9 +197,10 @@
         return;
     }
     
-    
+    [self observingAppNotification];
     
     _handleBlock = handle;
+    _timeInterval = seconds;
     _actionHandler = handler;
     _repeatCount = repeatCount;
     _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
