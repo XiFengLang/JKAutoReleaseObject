@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1386248BF2CDF55A7981A4FB /* libPods-JKAutoReleaseTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEA39723CCA133A1D9F996F /* libPods-JKAutoReleaseTimer.a */; };
 		9F413C821E976A7800BF3019 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C811E976A7800BF3019 /* main.m */; };
 		9F413C851E976A7800BF3019 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C841E976A7800BF3019 /* AppDelegate.m */; };
 		9F413C881E976A7800BF3019 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C871E976A7800BF3019 /* ViewController.m */; };
@@ -14,12 +15,11 @@
 		9F413C8D1E976A7800BF3019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F413C8C1E976A7800BF3019 /* Assets.xcassets */; };
 		9F413C901E976A7800BF3019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F413C8E1E976A7800BF3019 /* LaunchScreen.storyboard */; };
 		9F413C9E1E976ADC00BF3019 /* GCDTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C981E976ADC00BF3019 /* GCDTimerTestVC.m */; };
-		9F413C9F1E976ADC00BF3019 /* JKGCDTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C9B1E976ADC00BF3019 /* JKGCDTimerHolder.m */; };
-		9F413CA01E976ADC00BF3019 /* JKNSTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413C9D1E976ADC00BF3019 /* JKNSTimerHolder.m */; };
 		9F413CA61E976AEA00BF3019 /* NSTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F413CA41E976AEA00BF3019 /* NSTimerTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BEA39723CCA133A1D9F996F /* libPods-JKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKAutoReleaseTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F413C7D1E976A7800BF3019 /* JKAutoReleaseTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKAutoReleaseTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F413C811E976A7800BF3019 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F413C831E976A7800BF3019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,12 +32,10 @@
 		9F413C911E976A7800BF3019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F413C971E976ADC00BF3019 /* GCDTimerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimerTestVC.h; sourceTree = "<group>"; };
 		9F413C981E976ADC00BF3019 /* GCDTimerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimerTestVC.m; sourceTree = "<group>"; };
-		9F413C9A1E976ADC00BF3019 /* JKGCDTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGCDTimerHolder.h; sourceTree = "<group>"; };
-		9F413C9B1E976ADC00BF3019 /* JKGCDTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGCDTimerHolder.m; sourceTree = "<group>"; };
-		9F413C9C1E976ADC00BF3019 /* JKNSTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKNSTimerHolder.h; sourceTree = "<group>"; };
-		9F413C9D1E976ADC00BF3019 /* JKNSTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKNSTimerHolder.m; sourceTree = "<group>"; };
 		9F413CA31E976AEA00BF3019 /* NSTimerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimerTestVC.h; sourceTree = "<group>"; };
 		9F413CA41E976AEA00BF3019 /* NSTimerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTimerTestVC.m; sourceTree = "<group>"; };
+		EDEA8FD131A1A5FBA7FD826F /* Pods-JKAutoReleaseTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKAutoReleaseTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKAutoReleaseTimer/Pods-JKAutoReleaseTimer.release.xcconfig"; sourceTree = "<group>"; };
+		FB8E32043AC88E2FEED78EC0 /* Pods-JKAutoReleaseTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKAutoReleaseTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKAutoReleaseTimer/Pods-JKAutoReleaseTimer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1386248BF2CDF55A7981A4FB /* libPods-JKAutoReleaseTimer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14131BE98129AA614F17EFB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA39723CCA133A1D9F996F /* libPods-JKAutoReleaseTimer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9F413C741E976A7800BF3019 = {
 			isa = PBXGroup;
 			children = (
 				9F413C7F1E976A7800BF3019 /* JKAutoReleaseTimer */,
 				9F413C7E1E976A7800BF3019 /* Products */,
+				C7F742D08D25DA63656AD782 /* Pods */,
+				14131BE98129AA614F17EFB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +79,6 @@
 		9F413C7F1E976A7800BF3019 /* JKAutoReleaseTimer */ = {
 			isa = PBXGroup;
 			children = (
-				9F413C991E976ADC00BF3019 /* JKAutoReleaseTimer */,
 				9F413C971E976ADC00BF3019 /* GCDTimerTestVC.h */,
 				9F413C981E976ADC00BF3019 /* GCDTimerTestVC.m */,
 				9F413CA31E976AEA00BF3019 /* NSTimerTestVC.h */,
@@ -96,15 +104,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9F413C991E976ADC00BF3019 /* JKAutoReleaseTimer */ = {
+		C7F742D08D25DA63656AD782 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9F413C9A1E976ADC00BF3019 /* JKGCDTimerHolder.h */,
-				9F413C9B1E976ADC00BF3019 /* JKGCDTimerHolder.m */,
-				9F413C9C1E976ADC00BF3019 /* JKNSTimerHolder.h */,
-				9F413C9D1E976ADC00BF3019 /* JKNSTimerHolder.m */,
+				FB8E32043AC88E2FEED78EC0 /* Pods-JKAutoReleaseTimer.debug.xcconfig */,
+				EDEA8FD131A1A5FBA7FD826F /* Pods-JKAutoReleaseTimer.release.xcconfig */,
 			);
-			path = JKAutoReleaseTimer;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F413C941E976A7800BF3019 /* Build configuration list for PBXNativeTarget "JKAutoReleaseTimer" */;
 			buildPhases = (
+				EBD77C71057F493167ADA1FB /* [CP] Check Pods Manifest.lock */,
 				9F413C791E976A7800BF3019 /* Sources */,
 				9F413C7A1E976A7800BF3019 /* Frameworks */,
 				9F413C7B1E976A7800BF3019 /* Resources */,
@@ -174,18 +181,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EBD77C71057F493167ADA1FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JKAutoReleaseTimer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9F413C791E976A7800BF3019 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9F413C881E976A7800BF3019 /* ViewController.m in Sources */,
-				9F413C9F1E976ADC00BF3019 /* JKGCDTimerHolder.m in Sources */,
 				9F413C851E976A7800BF3019 /* AppDelegate.m in Sources */,
 				9F413C821E976A7800BF3019 /* main.m in Sources */,
 				9F413CA61E976AEA00BF3019 /* NSTimerTestVC.m in Sources */,
 				9F413C9E1E976ADC00BF3019 /* GCDTimerTestVC.m in Sources */,
-				9F413CA01E976ADC00BF3019 /* JKNSTimerHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +329,7 @@
 		};
 		9F413C951E976A7800BF3019 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8E32043AC88E2FEED78EC0 /* Pods-JKAutoReleaseTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5C5VZ6884A;
@@ -315,6 +342,7 @@
 		};
 		9F413C961E976A7800BF3019 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDEA8FD131A1A5FBA7FD826F /* Pods-JKAutoReleaseTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5C5VZ6884A;
