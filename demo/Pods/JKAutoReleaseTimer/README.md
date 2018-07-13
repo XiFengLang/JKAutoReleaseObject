@@ -3,15 +3,6 @@
  * JKNSTimerHolder 基于NSTimer封装的自释放定时器
  * JKGCDTimerHolder 基于dispatch_queue_t封装的自释放定时器
 
-### CocoaPods
-
-```C
-
-source 'https://github.com/CocoaPods/Specs.git'
-
-pod 'JKAutoReleaseTimer', '~> 1.0.0'
-```
-
 
 ### 先思考一个问题：在一个由导航控制器NaviVC管理的控制器VC中运行一个定时器NSTimer，target为VC(self)，重复20次，假设在第10次的时候退出VC（出栈），怎么在最短的时间内停止定时器并释放VC？ ###
 
