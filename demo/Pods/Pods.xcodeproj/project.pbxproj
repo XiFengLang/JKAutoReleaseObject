@@ -7,273 +7,150 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		065C3F1EBD4CAD7731150C709E8FD3CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		143405C9C917644D993F9E7A42D9077B /* JKGCDTimerHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 29A93BB2D6760FDAF09E7679815D8DD7 /* JKGCDTimerHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1C5C6C1958D0A7CA038D88EBC563E98D /* JKNSTimerHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E5D524804BE829519F6E793F62A48B /* JKNSTimerHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1D2EEFD9A548BDC1048FD2577FD06DAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		30FB2E62CE3CB19737AD7503CC880756 /* Pods-JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09067FD01D76724DE3A007F9890221DF /* Pods-JKAutoReleaseTimer-dummy.m */; };
-		336AEEEA5C56510C7CD599CA8BBF2107 /* JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23789809AC7A14E38112CEFC0BCF38A0 /* JKAutoReleaseTimer-dummy.m */; };
-		420390EE73119F7FEE3C729CA8CBBAB3 /* JKGCDTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B05AA1C74E7A39D510D03BF16CE26E /* JKGCDTimerHolder.m */; };
-		6A0AAFBB90FFB98D019C8B5D249B2EA0 /* JKNSTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = AB69D9F7ACBC27E49A596B9C5CA305A1 /* JKNSTimerHolder.m */; };
-		D63A2EEE56D7B3275C3B30CAE19F8411 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		AC111B87B7DC9032606AB977CDCCFBAF /* Pods-JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1BDC287FFF6809965E898D3CD7C72730 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 392CD8E6B3A8D51DDA1F048590832251;
-			remoteInfo = JKAutoReleaseTimer;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		01E5D524804BE829519F6E793F62A48B /* JKNSTimerHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKNSTimerHolder.h; path = src/JKNSTimerHolder.h; sourceTree = "<group>"; };
-		06B05AA1C74E7A39D510D03BF16CE26E /* JKGCDTimerHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKGCDTimerHolder.m; path = src/JKGCDTimerHolder.m; sourceTree = "<group>"; };
-		08CA799FF990CB92C1B8F2F98258A4AB /* Pods-JKAutoReleaseTimer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKAutoReleaseTimer-acknowledgements.plist"; sourceTree = "<group>"; };
-		09067FD01D76724DE3A007F9890221DF /* Pods-JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
-		23789809AC7A14E38112CEFC0BCF38A0 /* JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
-		29A93BB2D6760FDAF09E7679815D8DD7 /* JKGCDTimerHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKGCDTimerHolder.h; path = src/JKGCDTimerHolder.h; sourceTree = "<group>"; };
-		2DB0C940AB44C8A709BEEA44742F2DC0 /* Pods-JKAutoReleaseTimer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKAutoReleaseTimer-resources.sh"; sourceTree = "<group>"; };
-		563BFB0B973BA728F8AB94DD7C5ECEBC /* libJKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJKAutoReleaseTimer.a; path = libJKAutoReleaseTimer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		60799F2758C4758A64238E154DE75C37 /* Pods-JKAutoReleaseTimer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKAutoReleaseTimer-frameworks.sh"; sourceTree = "<group>"; };
-		8886A175FE2C04D40FA1014A076297E6 /* libPods-JKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JKAutoReleaseTimer.a"; path = "libPods-JKAutoReleaseTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A66828B053F7ECBBFE5CD818C3425C9 /* Pods-JKAutoReleaseTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A19C2A2CB1E362ADAB7F45AB8F0AB469 /* Pods-JKAutoReleaseTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.debug.xcconfig"; sourceTree = "<group>"; };
-		AB69D9F7ACBC27E49A596B9C5CA305A1 /* JKNSTimerHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKNSTimerHolder.m; path = src/JKNSTimerHolder.m; sourceTree = "<group>"; };
-		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		CC42484CA98F75D6B07053C1285BE214 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKAutoReleaseTimer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E22FBE1B82D1E8F91213E831549678D0 /* JKAutoReleaseTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKAutoReleaseTimer.xcconfig; sourceTree = "<group>"; };
-		FB56432CCC9BCAFA03AC447A15D45766 /* JKAutoReleaseTimer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKAutoReleaseTimer-prefix.pch"; sourceTree = "<group>"; };
+		16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		4E30100F15AE3C21F82C044C13134B30 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKAutoReleaseTimer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKAutoReleaseTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0BFC4863F5D49FB353532B7DB8F4750 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKAutoReleaseTimer-acknowledgements.plist"; sourceTree = "<group>"; };
+		F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		37044C89815846CB3106AA6A88C262BE /* Frameworks */ = {
+		22148675ACCBA09DC575415DF14C996B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2EEFD9A548BDC1048FD2577FD06DAA /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3E047950344146210EFCA17996DAA65B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				065C3F1EBD4CAD7731150C709E8FD3CA /* Foundation.framework in Frameworks */,
-				D63A2EEE56D7B3275C3B30CAE19F8411 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		285943D0E25CBDCFE10C9D029518A817 /* Support Files */ = {
+		288B22630563393748A4909EA618B1FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E22FBE1B82D1E8F91213E831549678D0 /* JKAutoReleaseTimer.xcconfig */,
-				23789809AC7A14E38112CEFC0BCF38A0 /* JKAutoReleaseTimer-dummy.m */,
-				FB56432CCC9BCAFA03AC447A15D45766 /* JKAutoReleaseTimer-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JKAutoReleaseTimer";
-			sourceTree = "<group>";
-		};
-		2C5590C516173D1F523AA57D7EEF580C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				563BFB0B973BA728F8AB94DD7C5ECEBC /* libJKAutoReleaseTimer.a */,
-				8886A175FE2C04D40FA1014A076297E6 /* libPods-JKAutoReleaseTimer.a */,
+				B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		347836B55D7800B74F9EA1BCFBC252FE /* JKAutoReleaseTimer */ = {
+		6C418AF095E3B9743A4D03CA2F7120DB /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				29A93BB2D6760FDAF09E7679815D8DD7 /* JKGCDTimerHolder.h */,
-				06B05AA1C74E7A39D510D03BF16CE26E /* JKGCDTimerHolder.m */,
-				01E5D524804BE829519F6E793F62A48B /* JKNSTimerHolder.h */,
-				AB69D9F7ACBC27E49A596B9C5CA305A1 /* JKNSTimerHolder.m */,
-				285943D0E25CBDCFE10C9D029518A817 /* Support Files */,
-			);
-			name = JKAutoReleaseTimer;
-			path = JKAutoReleaseTimer;
-			sourceTree = "<group>";
-		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				438B396F6B4147076630CAEFE34282C1 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
-				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		65F565D2D890D1E022B2DEB15B91974B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B567CBEFBEC4A924112D641F9B7D206C /* Pods-JKAutoReleaseTimer */,
+				FF50BA417F01B43DE2D7DF9E51FEEE9E /* Pods-JKAutoReleaseTimer */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7DB346D0F39D3F0E887471402A8071AB = {
+		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				E475D84D26F961B6C95586950F26681D /* Pods */,
-				2C5590C516173D1F523AA57D7EEF580C /* Products */,
-				65F565D2D890D1E022B2DEB15B91974B /* Targets Support Files */,
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				288B22630563393748A4909EA618B1FE /* Products */,
+				6C418AF095E3B9743A4D03CA2F7120DB /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B567CBEFBEC4A924112D641F9B7D206C /* Pods-JKAutoReleaseTimer */ = {
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC42484CA98F75D6B07053C1285BE214 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */,
-				08CA799FF990CB92C1B8F2F98258A4AB /* Pods-JKAutoReleaseTimer-acknowledgements.plist */,
-				09067FD01D76724DE3A007F9890221DF /* Pods-JKAutoReleaseTimer-dummy.m */,
-				60799F2758C4758A64238E154DE75C37 /* Pods-JKAutoReleaseTimer-frameworks.sh */,
-				2DB0C940AB44C8A709BEEA44742F2DC0 /* Pods-JKAutoReleaseTimer-resources.sh */,
-				A19C2A2CB1E362ADAB7F45AB8F0AB469 /* Pods-JKAutoReleaseTimer.debug.xcconfig */,
-				8A66828B053F7ECBBFE5CD818C3425C9 /* Pods-JKAutoReleaseTimer.release.xcconfig */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF50BA417F01B43DE2D7DF9E51FEEE9E /* Pods-JKAutoReleaseTimer */ = {
+			isa = PBXGroup;
+			children = (
+				4E30100F15AE3C21F82C044C13134B30 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */,
+				D0BFC4863F5D49FB353532B7DB8F4750 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */,
+				8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */,
+				16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */,
+				F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */,
 			);
 			name = "Pods-JKAutoReleaseTimer";
 			path = "Target Support Files/Pods-JKAutoReleaseTimer";
 			sourceTree = "<group>";
 		};
-		E475D84D26F961B6C95586950F26681D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				347836B55D7800B74F9EA1BCFBC252FE /* JKAutoReleaseTimer */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		9D16399AB7665E3DB68CC73D84CA56F2 /* Headers */ = {
+		13657791CFE00FC37017C4F71C3A0EBD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				143405C9C917644D993F9E7A42D9077B /* JKGCDTimerHolder.h in Headers */,
-				1C5C6C1958D0A7CA038D88EBC563E98D /* JKNSTimerHolder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		392CD8E6B3A8D51DDA1F048590832251 /* JKAutoReleaseTimer */ = {
+		2269227E08E4DD077C00637CB16B0BB1 /* Pods-JKAutoReleaseTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BDBE688D6806BBC35B434EDAB6F95E6 /* Build configuration list for PBXNativeTarget "JKAutoReleaseTimer" */;
+			buildConfigurationList = 09B4DC547C482474FFF624C050E4D605 /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */;
 			buildPhases = (
-				B3DDF31EBDE46A4ACEE11898351E2283 /* Sources */,
-				3E047950344146210EFCA17996DAA65B /* Frameworks */,
-				9D16399AB7665E3DB68CC73D84CA56F2 /* Headers */,
+				13657791CFE00FC37017C4F71C3A0EBD /* Headers */,
+				22267B407B3DC7C3CBB1ADFE19360B89 /* Sources */,
+				22148675ACCBA09DC575415DF14C996B /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = JKAutoReleaseTimer;
-			productName = JKAutoReleaseTimer;
-			productReference = 563BFB0B973BA728F8AB94DD7C5ECEBC /* libJKAutoReleaseTimer.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		5B9D6546D28A9D2AB2C3557C4E3F48DF /* Pods-JKAutoReleaseTimer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDC4E9AE1ABD7E4AB3B6C8D5B5F63E5F /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */;
-			buildPhases = (
-				EDC702A502DDFE1A2FCE03C95ED9E018 /* Sources */,
-				37044C89815846CB3106AA6A88C262BE /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E47A941453972DE9CEAFBFF82246FBDB /* PBXTargetDependency */,
 			);
 			name = "Pods-JKAutoReleaseTimer";
 			productName = "Pods-JKAutoReleaseTimer";
-			productReference = 8886A175FE2C04D40FA1014A076297E6 /* libPods-JKAutoReleaseTimer.a */;
+			productReference = B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 2C5590C516173D1F523AA57D7EEF580C /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 288B22630563393748A4909EA618B1FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				392CD8E6B3A8D51DDA1F048590832251 /* JKAutoReleaseTimer */,
-				5B9D6546D28A9D2AB2C3557C4E3F48DF /* Pods-JKAutoReleaseTimer */,
+				2269227E08E4DD077C00637CB16B0BB1 /* Pods-JKAutoReleaseTimer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B3DDF31EBDE46A4ACEE11898351E2283 /* Sources */ = {
+		22267B407B3DC7C3CBB1ADFE19360B89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				336AEEEA5C56510C7CD599CA8BBF2107 /* JKAutoReleaseTimer-dummy.m in Sources */,
-				420390EE73119F7FEE3C729CA8CBBAB3 /* JKGCDTimerHolder.m in Sources */,
-				6A0AAFBB90FFB98D019C8B5D249B2EA0 /* JKNSTimerHolder.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDC702A502DDFE1A2FCE03C95ED9E018 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30FB2E62CE3CB19737AD7503CC880756 /* Pods-JKAutoReleaseTimer-dummy.m in Sources */,
+				AC111B87B7DC9032606AB977CDCCFBAF /* Pods-JKAutoReleaseTimer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E47A941453972DE9CEAFBFF82246FBDB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JKAutoReleaseTimer;
-			target = 392CD8E6B3A8D51DDA1F048590832251 /* JKAutoReleaseTimer */;
-			targetProxy = 1BDC287FFF6809965E898D3CD7C72730 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		1EE19F5DD95931924296F637BF18BD8F /* Debug */ = {
+		05DF210AC65EBB0E593AAF976B2C2177 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -302,8 +179,109 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		14C0C4DA303B528732B6890C6E9A4403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		370B0DBD1CD3F16101D76CCEACB10A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		421ECB1396280A8D83853C3DDBED1700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -324,194 +302,40 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		2A38A739E1E29F85F090F77989A955FD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E22FBE1B82D1E8F91213E831549678D0 /* JKAutoReleaseTimer.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/JKAutoReleaseTimer/JKAutoReleaseTimer-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = JKAutoReleaseTimer;
-				PRODUCT_NAME = JKAutoReleaseTimer;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		30255C2A3E085B259A70ED4BB9E38E6A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A66828B053F7ECBBFE5CD818C3425C9 /* Pods-JKAutoReleaseTimer.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		509DA8286674554B4F2034EBE0949F8C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A19C2A2CB1E362ADAB7F45AB8F0AB469 /* Pods-JKAutoReleaseTimer.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F4568DEE257655D290C2B9CEAB37C934 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		F7D2A485FD86EF9DA838C64121CCFF79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E22FBE1B82D1E8F91213E831549678D0 /* JKAutoReleaseTimer.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/JKAutoReleaseTimer/JKAutoReleaseTimer-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = JKAutoReleaseTimer;
-				PRODUCT_NAME = JKAutoReleaseTimer;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		09B4DC547C482474FFF624C050E4D605 /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1EE19F5DD95931924296F637BF18BD8F /* Debug */,
-				F4568DEE257655D290C2B9CEAB37C934 /* Release */,
+				370B0DBD1CD3F16101D76CCEACB10A06 /* Debug */,
+				14C0C4DA303B528732B6890C6E9A4403 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BDBE688D6806BBC35B434EDAB6F95E6 /* Build configuration list for PBXNativeTarget "JKAutoReleaseTimer" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A38A739E1E29F85F090F77989A955FD /* Debug */,
-				F7D2A485FD86EF9DA838C64121CCFF79 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDC4E9AE1ABD7E4AB3B6C8D5B5F63E5F /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				509DA8286674554B4F2034EBE0949F8C /* Debug */,
-				30255C2A3E085B259A70ED4BB9E38E6A /* Release */,
+				421ECB1396280A8D83853C3DDBED1700 /* Debug */,
+				05DF210AC65EBB0E593AAF976B2C2177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }
