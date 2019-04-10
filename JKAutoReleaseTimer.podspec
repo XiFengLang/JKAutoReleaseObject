@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JKAutoReleaseTimer"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
 
   s.summary      = "低耦合的自释放定时器（NSTimer + GCD 定时器）"
   s.homepage     = "https://github.com/XiFengLang/JKAutoReleaseTimer"

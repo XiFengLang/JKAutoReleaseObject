@@ -49,7 +49,7 @@
     //                                                   action:@selector(gcdTimer:)];
     
     /// 2. block
-    [gcdTimerHolder jk_startWithTimeInterval:1.5 repeatCount:self.repeatCount block:^(JKGCDTimerHolder * _Nonnull jkTimer, GCDTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
+    [gcdTimerHolder jk_startWithTimeInterval:1 repeatCount:self.repeatCount block:^(JKGCDTimerHolder * _Nonnull jkTimer, GCDTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
         
         //  使用timerHandler不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
         [timerHandler gcdTimerAction:currentCount];
@@ -84,6 +84,7 @@
 
 - (IBAction)cancelTimerJK:(id)sender {
     [self.gcdTimerHolder jk_cancelGCDTimer];
+    self.gcdTimerHolder = nil;
 }
 
 

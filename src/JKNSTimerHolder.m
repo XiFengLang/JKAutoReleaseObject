@@ -66,16 +66,16 @@
 
 #pragma mark - selector回调
 
-- (void)jk_startNSTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startNSTimerWithTimeInterval:(NSTimeInterval)timeInterval
                             repeatCount:(UInt64)repeatCount
                           actionHandler:(id _Nonnull)handler
                                  action:(SEL _Nonnull)action {
     _timerHandler = handler;
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount selector:action];
+    [self jk_startWithTimeInterval:timeInterval repeatCount:repeatCount selector:action];
 }
 
 
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                         selector:(SEL _Nonnull)selector {
     NSParameterAssert(self.timerHandler);
@@ -99,9 +99,9 @@
     self.numberOfArguments = method_getNumberOfArguments(callBackMethod);
     
     _callbackSelector = selector;
-    _timeInterval = seconds;
+    _timeInterval = timeInterval;
     _repeatCount = repeatCount;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
+    _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                               target:self
                                             selector:@selector(handleTimerAction:)
                                             userInfo:nil
@@ -138,15 +138,15 @@
 #pragma mark - Block回调
 
 
-- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)timeInterval
                                repeatCount:(UInt64)repeatCount
                              actionHandler:(id _Nonnull)handler
                                     handle:(JKNSTimerBlack _Nonnull)handle {
     _timerHandler = handler;
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount block:handle];
+    [self jk_startWithTimeInterval:timeInterval repeatCount:repeatCount block:handle];
 }
 
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                            block:(JKNSTimerBlack)block {
     NSParameterAssert(self.timerHandler);
@@ -161,9 +161,9 @@
     [self observingAppNotification];
     
     _callbackBlock = block;
-    _timeInterval = seconds;
+    _timeInterval = timeInterval;
     _repeatCount = repeatCount;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
+    _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                               target:self
                                             selector:@selector(handleBlockTimerAction:)
                                             userInfo:nil
@@ -197,7 +197,7 @@
     if (suspended) {
         [self.timer setFireDate:[NSDate distantFuture]];
     } else {
-        [self.timer setFireDate:[NSDate date]];
+        [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:self.timeInterval]];
     }
 }
 

@@ -38,7 +38,7 @@ typedef void(^JKNSTimerBlack)(JKNSTimerHolder * __nonnull jkTimer, ObjectType __
 @property (nonatomic, weak, readonly) ObjectType timerHandler;
 
 
-/** 挂起，暂停定时器，此处不会释放定时器，JKNSTimerHolder仍被NSTimer强引用
+/** 挂起，暂停定时器，此处不会释放定时器，再次回调会是定时周期timeInterval(秒)后
  */
 @property (nonatomic, assign) BOOL suspended;
 
@@ -51,25 +51,27 @@ typedef void(^JKNSTimerBlack)(JKNSTimerHolder * __nonnull jkTimer, ObjectType __
 
 
 /**
- 开始定时器，需传值回调方法【selector】，repeatCount = 0时不重复，repeatCount = 总数 -1，调用cancelNSTimer取消
+ * 开始定时器，需传值回调方法【selector】，repeatCount = 0时不重复，repeatCount = 总数 -1，调用cancelNSTimer取消。
+ * 注意第一次回调是在定时周期timeInterval(秒)后
  
- @param seconds 间隔
+ @param timeInterval 周期、间隔(秒)
  @param repeatCount 重复次数，repeatCount = 总数 -1
  @param selector 回调SEL
  */
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                         selector:(SEL __nonnull)selector;
 
 
 /**
- 开始定时器，采用【Block】回调,repeatCount = 0时不重复，repeatCount = 总数 -1，调用cancelNSTimer取消
+ * 开始定时器，采用【Block】回调,repeatCount = 0时不重复，repeatCount = 总数 -1，调用cancelNSTimer取消。
+ * 注意第一次回调是在定时周期timeInterval(秒)后
  
- @param seconds 间隔
+ @param timeInterval 周期、间隔(秒)
  @param repeatCount 重复次数，repeatCount = 总数 -1
  @param block 回调Block
  */
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                            block:(JKNSTimerBlack __nonnull)block;
 
@@ -83,12 +85,12 @@ typedef void(^JKNSTimerBlack)(JKNSTimerHolder * __nonnull jkTimer, ObjectType __
 
 
 
-- (void)jk_startNSTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startNSTimerWithTimeInterval:(NSTimeInterval)timeInterval
                             repeatCount:(UInt64)repeatCount
                           actionHandler:(ObjectType __nonnull)handler
                                  action:(SEL __nonnull)action JKNSDeprecated("use startWithTimeInterval:repeatCount:timerHandler:callback");
 
-- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)timeInterval
                                repeatCount:(UInt64)repeatCount
                              actionHandler:(ObjectType __nonnull)handler
                                     handle:(JKNSTimerBlack __nonnull)handle JKNSDeprecated("use startWithTimeInterval:repeatCount:timerHandler:block:");

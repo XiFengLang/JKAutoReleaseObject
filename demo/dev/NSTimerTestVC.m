@@ -46,7 +46,7 @@
     
     
     /// 2.block
-    [timerHolder jk_startWithTimeInterval:1 repeatCount:self.repeatCount block:^(JKNSTimerHolder * _Nonnull jkTimer, NSTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
+    [timerHolder jk_startWithTimeInterval:5 repeatCount:self.repeatCount block:^(JKNSTimerHolder * _Nonnull jkTimer, NSTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
         //  使用timerHandler不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
         [timerHandler jk_sel:jkTimer index:currentCount];
     }];
@@ -60,6 +60,11 @@
     //
     //    }];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"暂停/开始" style:(UIBarButtonItemStylePlain) target:self action:@selector(suspend)];
+}
+
+- (void)suspend {
+    self.timerHolder.suspended = !self.timerHolder.suspended;
 }
 
 - (void)jk_sel:(JKNSTimerHolder *)timer {}

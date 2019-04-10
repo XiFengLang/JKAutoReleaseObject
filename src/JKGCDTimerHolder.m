@@ -60,15 +60,15 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
 
 #pragma mark - selector回调
 
-- (void)jk_startGCDTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startGCDTimerWithTimeInterval:(NSTimeInterval)timeInterval
                              repeatCount:(UInt64)repeatCount
                            actionHandler:(id _Nonnull)handler
                                   action:(SEL _Nonnull)action {
     _timerHandler = handler;
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount selector:action];
+    [self jk_startWithTimeInterval:timeInterval repeatCount:repeatCount selector:action];
 }
 
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                         selector:(SEL __nonnull)selector {
     NSParameterAssert(self.timerHandler);
@@ -90,39 +90,41 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
     
     
     _callbackSelector = selector;
-    _timeInterval = seconds;
+    _timeInterval = timeInterval;
     _repeatCount = repeatCount;
     
     
-    [self startWithTimeInterval:seconds block:^{
-        self.currentRepeatCount += 1;
-        
-        /// 实际最多只支持一个自定义参数（self.numberOfArguments - 2）
-        if (self.numberOfArguments > 3) {
-            NSLog(@"JKGCDTimerHolder Crash Error: 不支持多参数回调方法，最多支持一个自定义参数(JKGCDTimerHolder *), [%@ %@]",[self.timerHandler class],NSStringFromSelector(self.callbackSelector));
-        }
-        
-        /// 使用IMP调用方法
-        if ([self.timerHandler respondsToSelector:self.callbackSelector]) {
-            __weak typeof(self.timerHandler) weakTimerHandler = self.timerHandler;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                __strong typeof(weakTimerHandler) timerHandler = weakTimerHandler;
-                typedef void (* MessageSendFunc)(id, SEL, id);
-                IMP imp = [timerHandler methodForSelector:self.callbackSelector];
-                MessageSendFunc invoke = (MessageSendFunc)imp;
-                timerHandler && imp ? invoke(timerHandler, self.callbackSelector, self) : NULL;
+    [self startWithTimeInterval:timeInterval block:^{
+        if (self.suspended == false) {
+            self.currentRepeatCount += 1;
+            
+            /// 实际最多只支持一个自定义参数（self.numberOfArguments - 2）
+            if (self.numberOfArguments > 3) {
+                NSLog(@"JKGCDTimerHolder Crash Error: 不支持多参数回调方法，最多支持一个自定义参数(JKGCDTimerHolder *), [%@ %@]",[self.timerHandler class],NSStringFromSelector(self.callbackSelector));
+            }
+            
+            /// 使用IMP调用方法
+            if ([self.timerHandler respondsToSelector:self.callbackSelector]) {
+                __weak typeof(self.timerHandler) weakTimerHandler = self.timerHandler;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    __strong typeof(weakTimerHandler) timerHandler = weakTimerHandler;
+                    typedef void (* MessageSendFunc)(id, SEL, id);
+                    IMP imp = [timerHandler methodForSelector:self.callbackSelector];
+                    MessageSendFunc invoke = (MessageSendFunc)imp;
+                    timerHandler && imp ? invoke(timerHandler, self.callbackSelector, self) : NULL;
+                    
+                    /// PS:写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer
+                    if (self.currentRepeatCount > repeatCount) {
+                        [self jk_cancelGCDTimer];
+                    }
+                });
+            } else {
+                /// 比如：外部响应者已释放
+                [self jk_cancelGCDTimer];
                 
-                /// PS:写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer
                 if (self.currentRepeatCount > repeatCount) {
                     [self jk_cancelGCDTimer];
                 }
-            });
-        } else {
-            /// 比如：外部响应者已释放
-            [self jk_cancelGCDTimer];
-            
-            if (self.currentRepeatCount > repeatCount) {
-                [self jk_cancelGCDTimer];
             }
         }
     }];
@@ -137,15 +139,15 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
 
 #pragma mark - block回调
 
-- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)timeInterval
                                repeatCount:(UInt64)repeatCount
                              actionHandler:(id)handler
                                     handle:(JKGCDTimerBlock _Nonnull)handle {
     _timerHandler = handler;
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount block:handle];
+    [self jk_startWithTimeInterval:timeInterval repeatCount:repeatCount block:handle];
 }
 
-- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+- (void)jk_startWithTimeInterval:(NSTimeInterval)timeInterval
                      repeatCount:(UInt64)repeatCount
                            block:(JKGCDTimerBlock __nonnull)block {
     NSParameterAssert(self.timerHandler);
@@ -157,29 +159,31 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
         return;
     }
     
-    _timeInterval = seconds;
+    _timeInterval = timeInterval;
     _repeatCount = repeatCount;
     
-    [self startWithTimeInterval:seconds block:^{
-        self.currentRepeatCount += 1;
-        
-        /// Block回调
-        if (nil != self.timerHandler) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block(self,self.timerHandler,self.currentRepeatCount);
+    [self startWithTimeInterval:timeInterval block:^{
+        if (self.suspended == false) {
+            self.currentRepeatCount += 1;
+            
+            /// Block回调
+            if (nil != self.timerHandler) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    block(self,self.timerHandler,self.currentRepeatCount);
+                    
+                    /// 次数已够，结束定时器，【写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer】
+                    if (self.currentRepeatCount > repeatCount) {
+                        [self jk_cancelGCDTimer];
+                    }
+                });
+            } else {
+                /// 比如：外部响应者已释放
+                [self jk_cancelGCDTimer];
                 
-                /// 次数已够，结束定时器，【写重复代码是为了防止在子线程提前调用jk_cancelGCDTimer】
+                /// 次数已够，结束定时器
                 if (self.currentRepeatCount > repeatCount) {
                     [self jk_cancelGCDTimer];
                 }
-            });
-        } else {
-            /// 比如：外部响应者已释放
-            [self jk_cancelGCDTimer];
-            
-            /// 次数已够，结束定时器
-            if (self.currentRepeatCount > repeatCount) {
-                [self jk_cancelGCDTimer];
             }
         }
     }];
@@ -190,16 +194,15 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
 }
 
 
-- (void)startWithTimeInterval:(NSTimeInterval)seconds
+- (void)startWithTimeInterval:(NSTimeInterval)timeInterval
                         block:(dispatch_block_t _Nullable)block {
     /// GCD定时器
     dispatch_queue_attr_t attr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_USER_INTERACTIVE, 0);
     dispatch_queue_t serialQueue = dispatch_queue_create(kJKGCDTimerQueueKey, attr);
     _gcdTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, serialQueue);
-    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01* NSEC_PER_SEC));
-    uint64_t interval = (uint64_t)(seconds * NSEC_PER_SEC);
+    uint64_t interval = (uint64_t)(timeInterval * NSEC_PER_SEC);
     
-    dispatch_source_set_timer(self.gcdTimer, start, interval, 0);
+    dispatch_source_set_timer(self.gcdTimer,  dispatch_walltime(NULL, 0), interval, 0);
     dispatch_source_set_event_handler(self.gcdTimer, block);
 }
 
@@ -232,12 +235,12 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
 
 #pragma mark - 废除/结束定时器
 - (void)setSuspended:(BOOL)suspended {
-    _suspended = suspended;
-    
     if (!self.gcdTimer) return;
     if (suspended) {
+        _suspended = suspended;
         dispatch_suspend(self.gcdTimer);
     } else {
+        _suspended = suspended;
         dispatch_resume(self.gcdTimer);
     }
 }
@@ -246,9 +249,16 @@ static const char * kJKGCDTimerQueueKey = "JKGCDTimer.serial.queue";
 - (void)jk_cancelGCDTimer {
     if (self.gcdTimer) {
         [[NSNotificationCenter defaultCenter] removeObserver:self];
-        dispatch_cancel(self.gcdTimer);
         
+        if (self.suspended) {
+            /// 不能再暂停的timer 赋值 nil，所以要恢复
+            dispatch_source_set_timer(self.gcdTimer,  dispatch_walltime(NULL, 0), 100, 0);
+            dispatch_resume(self.gcdTimer);
+        }
+        dispatch_cancel(self.gcdTimer);
         _gcdTimer = nil;
+        
+        _suspended = false;
         _callbackSelector = NULL;
         _timerHandler = nil;
         _numberOfArguments = 0;
