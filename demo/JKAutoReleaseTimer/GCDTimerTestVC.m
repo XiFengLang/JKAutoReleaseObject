@@ -7,7 +7,7 @@
 //
 
 #import "GCDTimerTestVC.h"
-#import "JKGCDTimerHolder.h"
+#import <JKGCDTimerHolder.h>
 
 @interface GCDTimerTestVC ()
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;

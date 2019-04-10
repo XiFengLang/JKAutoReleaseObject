@@ -7,6 +7,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'JKAutoReleaseTimer' do
 
-#pod 'JKAutoReleaseTimer', '~> 1.0.0'
+pod 'JKAutoReleaseTimer', '~> 1.0.0'
 
+end
+
+target 'dev' do
+  
+  #pod 'JKAutoReleaseTimer', '~> 1.0.0'
+  
 end

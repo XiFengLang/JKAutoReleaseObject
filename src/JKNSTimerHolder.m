@@ -15,7 +15,7 @@
 
 /** 重复次数，0即不重复
  */
-@property (nonatomic, assign) NSUInteger repeatCount;
+@property (nonatomic, assign) UInt64 repeatCount;
 
 
 /** 定时器间隔
@@ -24,18 +24,16 @@
 
 /** 当前执行callBackAction的次数
  */
-@property (nonatomic, assign) NSUInteger currentRepeatCount;
+@property (nonatomic, assign) UInt64 currentRepeatCount;
 
 
-
-@property (nonatomic, weak)   id timerHandler;
 @property (nonatomic, assign) SEL callbackSelector;
 @property (nonatomic, copy) JKNSTimerBlack callbackBlock;
 
-    
+
 /** 回调方法中的参数（实际的自定义参数个数 = self.numberOfArguments - 2）
  */
-@property (nonatomic, assign) unsigned int numberOfArguments;
+@property (nonatomic, assign) int numberOfArguments;
 
 
 
@@ -45,87 +43,53 @@
 @property (nonatomic, assign) BOOL observingAppNotification;
 
 
-/**
- 标记进入后台的时间戳
+/** 标记进入后台的时间戳
  */
 @property (nonatomic, assign) NSTimeInterval markTimeInterval;
+
+
+
 @end
 
 @implementation JKNSTimerHolder
-    
-- (void)dealloc {
-    [self jk_cancelNSTimer];
-    
-#ifdef DEBUG
-    NSLog(@"%@ 已释放",self.class);
-#endif
+
+- (instancetype)init {
+    id tmp = nil;
+    return [self initWithTimerHandler:tmp];
 }
 
-
-- (void)jk_cancelNSTimer {
-    if (self.timer) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        [_timer invalidate];
-        _timer = nil;
-        
-        _currentRepeatCount = 0;
-        _callbackBlock = nil;
-        _callbackSelector = NULL;
-        _repeatCount = 0;
-    }
+- (instancetype)initWithTimerHandler:(id)timerHandler {
+    if (self = [super init]) {
+        _timerHandler = timerHandler;
+    }return self;
 }
 
-
-- (BOOL)observingAppNotification {
-    if (!_observingAppNotification) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillResignActiveNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
-        _observingAppNotification = YES;
-    }
-    return _observingAppNotification;
-}
-
-    
-- (void)handleNotification:(NSNotification *)notification {
-    if (self.suspended == NO) {
-        if ([notification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
-            self.markTimeInterval = [NSDate date].timeIntervalSince1970;
-        } else {
-            NSTimeInterval timeNow = [NSDate date].timeIntervalSince1970;
-            NSInteger interval = timeNow - self.markTimeInterval;
-            NSInteger number = (NSInteger)llround(self.currentRepeatCount + interval / self.timeInterval);
-            
-            self.currentRepeatCount = number < self.repeatCount ? number : self.repeatCount;
-            self.markTimeInterval = 0;
-        }
-    }
-}
-
+#pragma mark - selector回调
 
 - (void)jk_startNSTimerWithTimeInterval:(NSTimeInterval)seconds
-                            repeatCount:(NSUInteger)repeatCount
+                            repeatCount:(UInt64)repeatCount
                           actionHandler:(id _Nonnull)handler
                                  action:(SEL _Nonnull)action {
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount timerHandler:handler selector:action];
+    _timerHandler = handler;
+    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount selector:action];
 }
 
-    
+
 - (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
-                     repeatCount:(NSUInteger)repeatCount
-                    timerHandler:(id _Nonnull)timerHandler
+                     repeatCount:(UInt64)repeatCount
                         selector:(SEL _Nonnull)selector {
-    NSParameterAssert(timerHandler);
+    NSParameterAssert(self.timerHandler);
     NSParameterAssert(selector);
     
     [self jk_cancelNSTimer];
     
     /// 先校验selector
-    Method callBackMethod = class_getInstanceMethod([timerHandler class], selector);
+    Method callBackMethod = class_getInstanceMethod([self.timerHandler class], selector);
     if (callBackMethod == NULL) {
         NSLog(@"JKNSTimerHolder Error:  %@ 未实现",NSStringFromSelector(selector));
         return;
-    } else if ([timerHandler respondsToSelector:selector] == false) {
-        NSLog(@"JKNSTimerHolder Error:  [%@ 不能响应 %@]",[timerHandler class],NSStringFromSelector(selector));
+    } else if ([self.timerHandler respondsToSelector:selector] == false) {
+        NSLog(@"JKNSTimerHolder Error:  [%@ 不能响应 %@]",[self.timerHandler class],NSStringFromSelector(selector));
         return;
     }
     
@@ -134,8 +98,6 @@
     /// 方法的参数个数（实际的自定义参数个数 = self.numberOfArguments - 2）
     self.numberOfArguments = method_getNumberOfArguments(callBackMethod);
     
-    
-    _timerHandler = timerHandler;
     _callbackSelector = selector;
     _timeInterval = seconds;
     _repeatCount = repeatCount;
@@ -145,7 +107,7 @@
                                             userInfo:nil
                                              repeats:repeatCount];
 }
-    
+
 
 - (void)handleTimerAction:(NSTimer *)timer {
     if (self.currentRepeatCount > self.repeatCount) {
@@ -155,7 +117,7 @@
     
     /// 实际最多只支持一个自定义参数（self.numberOfArguments - 2）
     if (self.numberOfArguments > 3) {
-        NSLog(@"JKNSTimerHolder Crash Error: 不支持多参数回调方法，最多支持一个自定义参数(NSTimer *类型), [%@ %@]",[self.timerHandler class],NSStringFromSelector(self.callbackSelector));
+        NSLog(@"JKNSTimerHolder Crash Error: 不支持多参数回调方法，最多支持一个自定义参数(JKNSTimerHolder *), [%@ %@]",[self.timerHandler class],NSStringFromSelector(self.callbackSelector));
     }
     
     
@@ -164,7 +126,7 @@
         typedef void (* MessageSendFunc)(id, SEL, id);
         IMP imp = [self.timerHandler methodForSelector:self.callbackSelector];
         MessageSendFunc invoke = (MessageSendFunc)imp;
-        invoke(self.timerHandler, self.callbackSelector, timer);
+        invoke(self.timerHandler, self.callbackSelector, self);
     } else {
         /// 比如：外部响应者已释放
         [self jk_cancelNSTimer];
@@ -173,37 +135,26 @@
 
 
 
-- (void)setSuspended:(BOOL)suspended {
-    _suspended = suspended;
-    if (suspended) {
-        [self.timer setFireDate:[NSDate distantFuture]];
-    } else {
-        [self.timer setFireDate:[NSDate date]];
-    }
-}
-
-
-
-
+#pragma mark - Block回调
 
 
 - (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
-                               repeatCount:(NSUInteger)repeatCount
+                               repeatCount:(UInt64)repeatCount
                              actionHandler:(id _Nonnull)handler
                                     handle:(JKNSTimerBlack _Nonnull)handle {
-    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount timerHandler:handler block:handle];
+    _timerHandler = handler;
+    [self jk_startWithTimeInterval:seconds repeatCount:repeatCount block:handle];
 }
 
 - (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
-                     repeatCount:(NSUInteger)repeatCount
-                    timerHandler:(id)timerHandler
+                     repeatCount:(UInt64)repeatCount
                            block:(JKNSTimerBlack)block {
-    NSParameterAssert(timerHandler);
+    NSParameterAssert(self.timerHandler);
     NSParameterAssert(block);
     
     [self jk_cancelNSTimer];
     
-    if (nil == timerHandler || nil == block) {
+    if (nil == self.timerHandler || nil == block) {
         return;
     }
     
@@ -211,7 +162,6 @@
     
     _callbackBlock = block;
     _timeInterval = seconds;
-    _timerHandler = timerHandler;
     _repeatCount = repeatCount;
     _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
                                               target:self
@@ -220,8 +170,8 @@
                                              repeats:repeatCount];
 }
 
-    
-    
+
+
 - (void)handleBlockTimerAction:(NSTimer *)timer {
     if (self.currentRepeatCount > self.repeatCount) {
         [self jk_cancelNSTimer];
@@ -238,7 +188,67 @@
     }
 }
 
+
+#pragma mark - 取消/结束定时器
+- (void)setSuspended:(BOOL)suspended {
+    _suspended = suspended;
     
+    if (!self.timer) return;
+    if (suspended) {
+        [self.timer setFireDate:[NSDate distantFuture]];
+    } else {
+        [self.timer setFireDate:[NSDate date]];
+    }
+}
+
+- (void)jk_cancelNSTimer {
+    if (self.timer) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [_timer invalidate];
+        _timer = nil;
+        
+        _currentRepeatCount = 0;
+        _callbackBlock = nil;
+        _callbackSelector = NULL;
+        _repeatCount = 0;
+    }
+}
+
+- (void)dealloc {
+    [self jk_cancelNSTimer];
+    
+#ifdef DEBUG
+    NSLog(@"%@ 已释放",self.class);
+#endif
+}
+
+
+#pragma mark - 监听APP进入前后台的通知
+
+- (BOOL)observingAppNotification {
+    if (!_observingAppNotification) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillResignActiveNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
+        _observingAppNotification = YES;
+    }
+    return _observingAppNotification;
+}
+
+
+- (void)handleNotification:(NSNotification *)notification {
+    if (self.suspended == NO) {
+        if ([notification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
+            self.markTimeInterval = [NSDate date].timeIntervalSince1970;
+        } else {
+            NSTimeInterval timeNow = [NSDate date].timeIntervalSince1970;
+            NSInteger interval = timeNow - self.markTimeInterval;
+            NSInteger number = (NSInteger)llround(self.currentRepeatCount + interval / self.timeInterval);
+            
+            self.currentRepeatCount = number < self.repeatCount ? number : self.repeatCount;
+            self.markTimeInterval = 0;
+        }
+    }
+}
 
 
 @end

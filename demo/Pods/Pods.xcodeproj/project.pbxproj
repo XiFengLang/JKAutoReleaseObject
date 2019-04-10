@@ -7,21 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC111B87B7DC9032606AB977CDCCFBAF /* Pods-JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */; };
+		418B44ECC1DA2884C2221586ED16D0BF /* Pods-dev-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4983DCFFC63106AEF9C2492EA023B9 /* Pods-dev-dummy.m */; };
+		462A227568B0A3BA5D426021B83ACF62 /* JKGCDTimerHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D0869A1D6C7312B11B7808C292BA2AA /* JKGCDTimerHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		62999013F18434E65B91B23A6A45B99F /* JKGCDTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = A22DAB232D82BE8D46CBC5CDDB8F5B05 /* JKGCDTimerHolder.m */; };
+		665212D439D21E577F6CBD9FBB47F13E /* JKNSTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = D336EFADE4CCEDC02F71C0D89BBB87D7 /* JKNSTimerHolder.m */; };
+		76DC8AC5547143261A6932C39277C32D /* Pods-JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 866E6EF7643493AF12754A29C78B51BE /* Pods-JKAutoReleaseTimer-dummy.m */; };
+		C9246C7D1F91E18E013B59CADA2236CE /* JKAutoReleaseTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D6966027B423D2E08C49D1B54D14 /* JKAutoReleaseTimer-dummy.m */; };
+		E5B2867FA6C21DEBB27C80692999F048 /* JKNSTimerHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 584CDB86C0B165C094F0B5F1BCA7E9A7 /* JKNSTimerHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6BAE7F02103ED1493D80403E46B29DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09D9F5A75B50F3082BAFF4875EC76539;
+			remoteInfo = JKAutoReleaseTimer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.debug.xcconfig"; sourceTree = "<group>"; };
-		4E30100F15AE3C21F82C044C13134B30 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKAutoReleaseTimer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKAutoReleaseTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0BFC4863F5D49FB353532B7DB8F4750 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKAutoReleaseTimer-acknowledgements.plist"; sourceTree = "<group>"; };
-		F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.release.xcconfig"; sourceTree = "<group>"; };
+		06F1C1AB9A00C9CA3EAA6C490555A99C /* JKAutoReleaseTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKAutoReleaseTimer.xcconfig; sourceTree = "<group>"; };
+		0D94F68F9B4C771ABD0C5259BAD900EF /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKAutoReleaseTimer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		165ED648EECD8F659DC50D4B9A636114 /* Pods-dev-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-dev-acknowledgements.plist"; sourceTree = "<group>"; };
+		16D22F52A96422F0B4591FAD3606717D /* Pods-dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-dev.release.xcconfig"; sourceTree = "<group>"; };
+		2078D6966027B423D2E08C49D1B54D14 /* JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
+		291854E66FDFDF7EF3A2EC9D32D1C96B /* Pods-dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-dev.debug.xcconfig"; sourceTree = "<group>"; };
+		2D459C6F6C082E367568CFBE9598731E /* libJKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJKAutoReleaseTimer.a; path = libJKAutoReleaseTimer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BD80BA65829E69E2703981D9F321EC5 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKAutoReleaseTimer-acknowledgements.plist"; sourceTree = "<group>"; };
+		4EBDE549D2EABC7A98F911D3D148BC59 /* libPods-JKAutoReleaseTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JKAutoReleaseTimer.a"; path = "libPods-JKAutoReleaseTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		584CDB86C0B165C094F0B5F1BCA7E9A7 /* JKNSTimerHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKNSTimerHolder.h; path = src/JKNSTimerHolder.h; sourceTree = "<group>"; };
+		6D0869A1D6C7312B11B7808C292BA2AA /* JKGCDTimerHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKGCDTimerHolder.h; path = src/JKGCDTimerHolder.h; sourceTree = "<group>"; };
+		827317A24715B58077814E93747FBB60 /* Pods-JKAutoReleaseTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.release.xcconfig"; sourceTree = "<group>"; };
+		866E6EF7643493AF12754A29C78B51BE /* Pods-JKAutoReleaseTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKAutoReleaseTimer-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A22DAB232D82BE8D46CBC5CDDB8F5B05 /* JKGCDTimerHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKGCDTimerHolder.m; path = src/JKGCDTimerHolder.m; sourceTree = "<group>"; };
+		A6532AFFCA6F47E132F9DB60EE199F15 /* Pods-dev-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-dev-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AF4983DCFFC63106AEF9C2492EA023B9 /* Pods-dev-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dev-dummy.m"; sourceTree = "<group>"; };
+		C0C972DEF6FD304DAAFA0568D78367B6 /* Pods-JKAutoReleaseTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKAutoReleaseTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		CF86FCD7B4E82C7894C90C3A328624ED /* JKAutoReleaseTimer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKAutoReleaseTimer-prefix.pch"; sourceTree = "<group>"; };
+		D336EFADE4CCEDC02F71C0D89BBB87D7 /* JKNSTimerHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKNSTimerHolder.m; path = src/JKNSTimerHolder.m; sourceTree = "<group>"; };
+		F8B28C59A9101D6AE30281566DB9E0E8 /* libPods-dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-dev.a"; path = "libPods-dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		22148675ACCBA09DC575415DF14C996B /* Frameworks */ = {
+		3FBB3A193B5263BAE92C1AC9A214AB15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C16D0090DF13E5B4F5623330CA9C30FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68E59540C4BBF5F74926A9457CB5D95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,20 +75,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		288B22630563393748A4909EA618B1FE /* Products */ = {
+		37EBD03EDDE2ECD83BAB9A8A8207AB0A /* Pods-dev */ = {
 			isa = PBXGroup;
 			children = (
-				B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */,
+				A6532AFFCA6F47E132F9DB60EE199F15 /* Pods-dev-acknowledgements.markdown */,
+				165ED648EECD8F659DC50D4B9A636114 /* Pods-dev-acknowledgements.plist */,
+				AF4983DCFFC63106AEF9C2492EA023B9 /* Pods-dev-dummy.m */,
+				291854E66FDFDF7EF3A2EC9D32D1C96B /* Pods-dev.debug.xcconfig */,
+				16D22F52A96422F0B4591FAD3606717D /* Pods-dev.release.xcconfig */,
+			);
+			name = "Pods-dev";
+			path = "Target Support Files/Pods-dev";
+			sourceTree = "<group>";
+		};
+		3B2B7A8F26959A31D4CBAC3258F391A3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				37EBD03EDDE2ECD83BAB9A8A8207AB0A /* Pods-dev */,
+				9C1D54BC6CEC36B0D135F55558489EA0 /* Pods-JKAutoReleaseTimer */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		78391F6381F3C086900B4EF6CE4DFBB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D459C6F6C082E367568CFBE9598731E /* libJKAutoReleaseTimer.a */,
+				F8B28C59A9101D6AE30281566DB9E0E8 /* libPods-dev.a */,
+				4EBDE549D2EABC7A98F911D3D148BC59 /* libPods-JKAutoReleaseTimer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C418AF095E3B9743A4D03CA2F7120DB /* Targets Support Files */ = {
+		81A313BA5FAB47DAB0B0F2E5B43CE8AB /* JKAutoReleaseTimer */ = {
 			isa = PBXGroup;
 			children = (
-				FF50BA417F01B43DE2D7DF9E51FEEE9E /* Pods-JKAutoReleaseTimer */,
+				6D0869A1D6C7312B11B7808C292BA2AA /* JKGCDTimerHolder.h */,
+				A22DAB232D82BE8D46CBC5CDDB8F5B05 /* JKGCDTimerHolder.m */,
+				584CDB86C0B165C094F0B5F1BCA7E9A7 /* JKNSTimerHolder.h */,
+				D336EFADE4CCEDC02F71C0D89BBB87D7 /* JKNSTimerHolder.m */,
+				E63E75FF2C69FF48D47B82FF03582719 /* Support Files */,
 			);
-			name = "Targets Support Files";
+			name = JKAutoReleaseTimer;
+			path = JKAutoReleaseTimer;
+			sourceTree = "<group>";
+		};
+		9C1D54BC6CEC36B0D135F55558489EA0 /* Pods-JKAutoReleaseTimer */ = {
+			isa = PBXGroup;
+			children = (
+				0D94F68F9B4C771ABD0C5259BAD900EF /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */,
+				4BD80BA65829E69E2703981D9F321EC5 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */,
+				866E6EF7643493AF12754A29C78B51BE /* Pods-JKAutoReleaseTimer-dummy.m */,
+				C0C972DEF6FD304DAAFA0568D78367B6 /* Pods-JKAutoReleaseTimer.debug.xcconfig */,
+				827317A24715B58077814E93747FBB60 /* Pods-JKAutoReleaseTimer.release.xcconfig */,
+			);
+			name = "Pods-JKAutoReleaseTimer";
+			path = "Target Support Files/Pods-JKAutoReleaseTimer";
+			sourceTree = "<group>";
+		};
+		BB5F07DDB03BFFCE847069083A7EA64C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81A313BA5FAB47DAB0B0F2E5B43CE8AB /* JKAutoReleaseTimer */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -52,8 +146,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
-				288B22630563393748A4909EA618B1FE /* Products */,
-				6C418AF095E3B9743A4D03CA2F7120DB /* Targets Support Files */,
+				BB5F07DDB03BFFCE847069083A7EA64C /* Pods */,
+				78391F6381F3C086900B4EF6CE4DFBB2 /* Products */,
+				3B2B7A8F26959A31D4CBAC3258F391A3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,47 +159,96 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FF50BA417F01B43DE2D7DF9E51FEEE9E /* Pods-JKAutoReleaseTimer */ = {
+		E63E75FF2C69FF48D47B82FF03582719 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E30100F15AE3C21F82C044C13134B30 /* Pods-JKAutoReleaseTimer-acknowledgements.markdown */,
-				D0BFC4863F5D49FB353532B7DB8F4750 /* Pods-JKAutoReleaseTimer-acknowledgements.plist */,
-				8B414C42311F07FB000C8BF273388508 /* Pods-JKAutoReleaseTimer-dummy.m */,
-				16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */,
-				F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */,
+				06F1C1AB9A00C9CA3EAA6C490555A99C /* JKAutoReleaseTimer.xcconfig */,
+				2078D6966027B423D2E08C49D1B54D14 /* JKAutoReleaseTimer-dummy.m */,
+				CF86FCD7B4E82C7894C90C3A328624ED /* JKAutoReleaseTimer-prefix.pch */,
 			);
-			name = "Pods-JKAutoReleaseTimer";
-			path = "Target Support Files/Pods-JKAutoReleaseTimer";
+			name = "Support Files";
+			path = "../Target Support Files/JKAutoReleaseTimer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		13657791CFE00FC37017C4F71C3A0EBD /* Headers */ = {
+		09E1C88B451184490EA2BFD0F8FAF8A3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0F63BEDA3E7A387F6FB49CC71985DCAD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5BF7AFDE55858CE512CF85B537EDC25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				462A227568B0A3BA5D426021B83ACF62 /* JKGCDTimerHolder.h in Headers */,
+				E5B2867FA6C21DEBB27C80692999F048 /* JKNSTimerHolder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2269227E08E4DD077C00637CB16B0BB1 /* Pods-JKAutoReleaseTimer */ = {
+		09D9F5A75B50F3082BAFF4875EC76539 /* JKAutoReleaseTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09B4DC547C482474FFF624C050E4D605 /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */;
+			buildConfigurationList = EC496C087BF5D29031C999F9386572BD /* Build configuration list for PBXNativeTarget "JKAutoReleaseTimer" */;
 			buildPhases = (
-				13657791CFE00FC37017C4F71C3A0EBD /* Headers */,
-				22267B407B3DC7C3CBB1ADFE19360B89 /* Sources */,
-				22148675ACCBA09DC575415DF14C996B /* Frameworks */,
+				B5BF7AFDE55858CE512CF85B537EDC25 /* Headers */,
+				F039581A709FE189FFA3671996E10448 /* Sources */,
+				3FBB3A193B5263BAE92C1AC9A214AB15 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = JKAutoReleaseTimer;
+			productName = JKAutoReleaseTimer;
+			productReference = 2D459C6F6C082E367568CFBE9598731E /* libJKAutoReleaseTimer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2269227E08E4DD077C00637CB16B0BB1 /* Pods-JKAutoReleaseTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B07608B7844CD77906FFF565921F2FAF /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */;
+			buildPhases = (
+				09E1C88B451184490EA2BFD0F8FAF8A3 /* Headers */,
+				EDB8FD17540D4E41BD89CC499CA15682 /* Sources */,
+				D68E59540C4BBF5F74926A9457CB5D95 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B4E3A678EAE88E7FBAE4051E19035A1 /* PBXTargetDependency */,
+			);
 			name = "Pods-JKAutoReleaseTimer";
 			productName = "Pods-JKAutoReleaseTimer";
-			productReference = B6A69AB206403DAEADDE7510C5936184 /* libPods-JKAutoReleaseTimer.a */;
+			productReference = 4EBDE549D2EABC7A98F911D3D148BC59 /* libPods-JKAutoReleaseTimer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EFBF973B34AB667EB7EF3854DB488E3C /* Pods-dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F96B1C21E060F7352D20D623E74AD2 /* Build configuration list for PBXNativeTarget "Pods-dev" */;
+			buildPhases = (
+				0F63BEDA3E7A387F6FB49CC71985DCAD /* Headers */,
+				C0072F85BB96574C7576320EAEF0950B /* Sources */,
+				C16D0090DF13E5B4F5623330CA9C30FE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-dev";
+			productName = "Pods-dev";
+			productReference = F8B28C59A9101D6AE30281566DB9E0E8 /* libPods-dev.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -114,43 +258,70 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 288B22630563393748A4909EA618B1FE /* Products */;
+			productRefGroup = 78391F6381F3C086900B4EF6CE4DFBB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				09D9F5A75B50F3082BAFF4875EC76539 /* JKAutoReleaseTimer */,
+				EFBF973B34AB667EB7EF3854DB488E3C /* Pods-dev */,
 				2269227E08E4DD077C00637CB16B0BB1 /* Pods-JKAutoReleaseTimer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		22267B407B3DC7C3CBB1ADFE19360B89 /* Sources */ = {
+		C0072F85BB96574C7576320EAEF0950B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC111B87B7DC9032606AB977CDCCFBAF /* Pods-JKAutoReleaseTimer-dummy.m in Sources */,
+				418B44ECC1DA2884C2221586ED16D0BF /* Pods-dev-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB8FD17540D4E41BD89CC499CA15682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76DC8AC5547143261A6932C39277C32D /* Pods-JKAutoReleaseTimer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F039581A709FE189FFA3671996E10448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9246C7D1F91E18E013B59CADA2236CE /* JKAutoReleaseTimer-dummy.m in Sources */,
+				62999013F18434E65B91B23A6A45B99F /* JKGCDTimerHolder.m in Sources */,
+				665212D439D21E577F6CBD9FBB47F13E /* JKNSTimerHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B4E3A678EAE88E7FBAE4051E19035A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JKAutoReleaseTimer;
+			target = 09D9F5A75B50F3082BAFF4875EC76539 /* JKAutoReleaseTimer */;
+			targetProxy = 6BAE7F02103ED1493D80403E46B29DAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		05DF210AC65EBB0E593AAF976B2C2177 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -200,60 +371,17 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		14C0C4DA303B528732B6890C6E9A4403 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4E4604682BCF501ED6CEDF88A704C85 /* Pods-JKAutoReleaseTimer.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		370B0DBD1CD3F16101D76CCEACB10A06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16B0F91221417879046EC497D8D99270 /* Pods-JKAutoReleaseTimer.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		421ECB1396280A8D83853C3DDBED1700 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -314,14 +442,147 @@
 			};
 			name = Debug;
 		};
+		7F19B1A935F168F880916EFE550422A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16D22F52A96422F0B4591FAD3606717D /* Pods-dev.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8056209B905C0FC30AF013A3C1A1BCEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 291854E66FDFDF7EF3A2EC9D32D1C96B /* Pods-dev.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9AAB4FA96F5DB0B7DF4547C8B56D15A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06F1C1AB9A00C9CA3EAA6C490555A99C /* JKAutoReleaseTimer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/JKAutoReleaseTimer/JKAutoReleaseTimer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = JKAutoReleaseTimer;
+				PRODUCT_NAME = JKAutoReleaseTimer;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8CC1DE5AE269A93E16449596091C07B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 827317A24715B58077814E93747FBB60 /* Pods-JKAutoReleaseTimer.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CAB890FA323A99869754D19DB18DE2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0C972DEF6FD304DAAFA0568D78367B6 /* Pods-JKAutoReleaseTimer.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E724F8BA2750E4163904D54FFA900AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06F1C1AB9A00C9CA3EAA6C490555A99C /* JKAutoReleaseTimer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/JKAutoReleaseTimer/JKAutoReleaseTimer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = JKAutoReleaseTimer;
+				PRODUCT_NAME = JKAutoReleaseTimer;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09B4DC547C482474FFF624C050E4D605 /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */ = {
+		12F96B1C21E060F7352D20D623E74AD2 /* Build configuration list for PBXNativeTarget "Pods-dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				370B0DBD1CD3F16101D76CCEACB10A06 /* Debug */,
-				14C0C4DA303B528732B6890C6E9A4403 /* Release */,
+				8056209B905C0FC30AF013A3C1A1BCEC /* Debug */,
+				7F19B1A935F168F880916EFE550422A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -331,6 +592,24 @@
 			buildConfigurations = (
 				421ECB1396280A8D83853C3DDBED1700 /* Debug */,
 				05DF210AC65EBB0E593AAF976B2C2177 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B07608B7844CD77906FFF565921F2FAF /* Build configuration list for PBXNativeTarget "Pods-JKAutoReleaseTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAB890FA323A99869754D19DB18DE2FC /* Debug */,
+				A8CC1DE5AE269A93E16449596091C07B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC496C087BF5D29031C999F9386572BD /* Build configuration list for PBXNativeTarget "JKAutoReleaseTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AAB4FA96F5DB0B7DF4547C8B56D15A1 /* Debug */,
+				E724F8BA2750E4163904D54FFA900AE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
