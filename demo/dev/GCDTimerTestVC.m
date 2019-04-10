@@ -31,7 +31,7 @@
 
 - (IBAction)startTimerJK:(id)sender {
     [self.gcdTimerHolder jk_cancelGCDTimer];
-    
+     
     JKGCDTimerHolder <GCDTimerTestVC *>* gcdTimerHolder = [[JKGCDTimerHolder alloc] initWithTimerHandler:self];
     
     /// 强/弱引用都有可以
