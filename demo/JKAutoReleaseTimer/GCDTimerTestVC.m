@@ -30,25 +30,24 @@
 
 
 - (IBAction)startTimerJK:(id)sender {
-    JKGCDTimerHolder * gcdTimerHolder = [[JKGCDTimerHolder alloc] init];
+    [self.gcdTimerHolder jk_cancelGCDTimer];
+    
+    JKGCDTimerHolder <GCDTimerTestVC *>* gcdTimerHolder = [[JKGCDTimerHolder alloc] initWithTimerHandler:self];
     
     /// 强/弱引用都有可以
     self.gcdTimerHolder = gcdTimerHolder;
     
     /// 1. selector
-//    [self.gcdTimerHolder jk_startGCDTimerWithTimeInterval:0.5
-//                                              repeatCount:self.repeatCount
-//                                            actionHandler:self
-//                                                   action:@selector(gcdTimer:)];
+    //    [self.gcdTimerHolder jk_startWithTimeInterval:0.5
+    //                                      repeatCount:self.repeatCount
+    //                                         selector:@selector(gcdTimer:)];
+    
     
     /// 2. block
-    [self.gcdTimerHolder jk_startBlockTimerWithTimeInterval:1.5
-                                                repeatCount:self.repeatCount
-                                              actionHandler:self
-                                                     handle:^(JKGCDTimerHolder * _Nonnull gcdTimer, id  _Nonnull tempSelf, NSUInteger currentCount) {
-
-        ///  tempSelf == 传入的actionHandler,使用tempSelf不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
-        [(GCDTimerTestVC *)tempSelf gcdTimerAction:currentCount];
+    [gcdTimerHolder jk_startWithTimeInterval:1.5 repeatCount:self.repeatCount block:^(JKGCDTimerHolder * _Nonnull jkTimer, GCDTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
+        
+        //  使用timerHandler不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
+        [timerHandler gcdTimerAction:currentCount];
     }];
 }
 

@@ -9,51 +9,86 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#pragma clang assume_nonnull begin
+NS_ASSUME_NONNULL_BEGIN
+#define JKGCDDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
 
-@class JKGCDTimerHolder;
-typedef void(^JKGCDTimerHandle)(JKGCDTimerHolder * gcdTimer, id tempSelf, NSUInteger currentCount);
 
-/**
- 实现GCD Timer和self的解耦，内部自动管理内存的释放
+/** 实现dispatch_source_set_event_handler和self的解耦，避免循环引用，1.0.1已支持泛型
  */
-@interface JKGCDTimerHolder : NSObject
+@interface JKGCDTimerHolder <__covariant ObjectType>: NSObject
+
+
+/**
+ 回调Block，使用block里面的参数，能避免循环引用的问题
+ 
+ @param jkTimer 定时器持有者JKNSTimerHolder
+ @param timerHandler 外部的事件处理者，支持泛型
+ @param currentCount 当前的次数
+ */
+typedef void(^JKGCDTimerBlock)(JKGCDTimerHolder * jkTimer, ObjectType timerHandler, UInt64 currentCount);
+
+
+
+/** 外部定时任务处理者，弱引用
+ */
+@property (nonatomic, weak, readonly) ObjectType timerHandler;
+
+
+/** 挂起，暂停定时器，此处不会释放定时器，JKGCDTimerHolder仍被dispatch_source_set_event_handler强引用
+ */
+@property (nonatomic, assign) BOOL suspended;
+
+
+
+/** 用外部定时任务处理者初始化，一般是self
+ */
+- (instancetype)initWithTimerHandler:(ObjectType)timerHandler NS_DESIGNATED_INITIALIZER;
 
 
 
 /**
- 开始GCD定时器，定时事件在主线程回调。repeatCount = 0时不重复，调用cancelGCDTimer，即可取消定时。
+ 开始GCD定时器，在‘主线程’回调【selector】。repeatCount = 0时不重复，调用cancelGCDTimer，即可取消定时。
  
  @param seconds 周期
  @param repeatCount 重复次数，repeatCount = 总数 -1
- @param handler 回调响应者
- @param action 回调SEL
+ @param selector 回调SEL
  */
-- (void)jk_startGCDTimerWithTimeInterval:(NSTimeInterval)seconds
-                             repeatCount:(NSUInteger)repeatCount
-                           actionHandler:(id __nonnull)handler
-                                  action:(SEL __nonnull)action;
+- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+                     repeatCount:(UInt64)repeatCount
+                        selector:(SEL __nonnull)selector;
+
+
 
 
 /**
- 开始GCD定时器，定时事件在主线程通过Block回调。repeatCount = 0时不重复，调用cancelGCDTimer，即可取消定时。
+ 开始GCD定时器，在‘主线程’回调【Block】。repeatCount = 0时不重复，调用cancelGCDTimer，即可取消定时。
  
  @param seconds 周期
  @param repeatCount 重复次数，repeatCount = 总数 -1
- @param handler 回调响应者
- @param handle 回调SEL
+ @param block 回调Block
  */
-- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
-                               repeatCount:(NSUInteger)repeatCount
-                             actionHandler:(id __nonnull)handler
-                                    handle:(JKGCDTimerHandle __nonnull)handle;
+- (void)jk_startWithTimeInterval:(NSTimeInterval)seconds
+                     repeatCount:(UInt64)repeatCount
+                           block:(JKGCDTimerBlock __nonnull)block;
 
 
-
-/**
- 取消GCD定时器任务
+/** 取消GCD定时器任务，内部会释放dispatch_source_t
  */
 - (void)jk_cancelGCDTimer;
 
+
+
+
+
+
+- (void)jk_startGCDTimerWithTimeInterval:(NSTimeInterval)seconds
+                             repeatCount:(UInt64)repeatCount
+                           actionHandler:(id __nonnull)handler
+                                  action:(SEL __nonnull)action JKGCDDeprecated("use startWithTimeInterval:repeatCount:timerHandler:callback");
+
+- (void)jk_startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+                               repeatCount:(UInt64)repeatCount
+                             actionHandler:(id __nonnull)handler
+                                    handle:(JKGCDTimerBlock __nonnull)handle JKGCDDeprecated("use startWithTimeInterval:repeatCount:timerHandler:block:");
 @end
-#pragma clang assume_nonnull end
+NS_ASSUME_NONNULL_END

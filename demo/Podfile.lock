@@ -1,5 +1,5 @@
 PODS:
-  - JKAutoReleaseTimer (1.0.0)
+  - JKAutoReleaseTimer (1.0.2)
 
 DEPENDENCIES:
   - JKAutoReleaseTimer (~> 1.0.0)
@@ -9,7 +9,7 @@ SPEC REPOS:
     - JKAutoReleaseTimer
 
 SPEC CHECKSUMS:
-  JKAutoReleaseTimer: 36ee70d3438eb1fa2cdf460079bf6a0d57106c9f
+  JKAutoReleaseTimer: c5eef42392892f55c762014dd98346633db9c397
 
 PODFILE CHECKSUM: 4d6982b375bb55cb5e7f2bac41cb37d2a025f674
 

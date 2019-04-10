@@ -28,18 +28,16 @@
     self.repeatCount = 19;
     
     /// 初始化定时器，支持泛型
-    JKNSTimerHolder <NSTimerTestVC *>* timerHolder = [[JKNSTimerHolder alloc] init];
+    JKNSTimerHolder <NSTimerTestVC *>* timerHolder = [[JKNSTimerHolder alloc] initWithTimerHandler:self];
     
     
     /// 强/弱引用都有可以
     self.timerHolder = timerHolder;
     
-    
     /// 1.selector
-    [self.timerHolder jk_startWithTimeInterval:0.5
-                                   repeatCount:self.repeatCount
-                                  timerHandler:self
-                                      selector:@selector(jk_sel:)];
+    //    [self.timerHolder jk_startWithTimeInterval:0.5
+    //                                   repeatCount:self.repeatCount
+    //                                      selector:@selector(jk_sel:)];
     
     /// 废弃
     //    [timerHolder jk_startNSTimerWithTimeInterval:0.5
@@ -49,7 +47,7 @@
     
     
     /// 2.block
-    [timerHolder jk_startWithTimeInterval:1 repeatCount:self.repeatCount timerHandler:self block:^(JKNSTimerHolder * _Nonnull jkTimer, NSTimerTestVC * _Nonnull timerHandler, NSUInteger currentCount) {
+    [timerHolder jk_startWithTimeInterval:1 repeatCount:self.repeatCount block:^(JKNSTimerHolder * _Nonnull jkTimer, NSTimerTestVC * _Nonnull timerHandler, UInt64 currentCount) {
         //  使用timerHandler不会发生循环引用（Block只会在执行过程强引用参数对象，执行完就会解除强引用）
         [timerHandler jk_sel:jkTimer index:currentCount];
     }];
